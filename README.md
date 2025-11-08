@@ -1,28 +1,72 @@
 # MediaTidy
 
-## Overview
+MediaTidy is a Python utility script that brings order to chaotic photo and video libraries. It automates the process of organizing your media by scanning a folder, intelligently renaming files based on their metadata, and moving them into a clean, standardized `Images` and `Videos` directory structure.
 
-MediaTidy is a powerful Python utility script designed to bring order to even the most chaotic media libraries. It automates the process of organizing your photos and videos by scanning a designated folder, intelligently renaming files, and moving them into a clean, standardized directory structure.
+---
 
-## Features
+## Key Features
 
-*   **Smart Date Recognition**: Utilizes EXIF metadata from photos (via the Pillow library) to accurately determine the "Date Taken." If EXIF data is unavailable, it gracefully falls back to using the file's last modification time.
-*   **Organizes by Type**: Automatically creates dedicated `Images` and `Videos` folders at the root of your media library, ensuring clear separation and easy access.
-*   **Automatic Renaming**: Renames all media files to a consistent and readable format: `YYYY-MM-DD_HH-MM-SS`.
-*   **Collision Handling**: Prevents accidental overwrites by intelligently appending a counter (e.g., `... (1)`, `... (2)`) to filenames if a duplicate name is encountered.
-*   **Recursive Cleanup**: After all media files have been processed and moved, the script performs a thorough scan to identify and delete any empty subfolders left behind, maintaining a tidy directory structure.
-*   **User-Friendly Interface**: Integrates `tkinter` for an intuitive graphical folder selection dialog, making it easy to choose your media library.
-*   **Live Progress Tracking**: Incorporates `tqdm` to display a real-time progress bar, keeping you informed during the organization process.
+*   **Smart Date Recognition**: Uses EXIF metadata from photos (via the Pillow library) to find the exact "Date Taken." If EXIF data is missing, it falls back to the file's last modification time.
+*   **Organizes by Type**: Automatically creates and sorts files into `Images` and `Videos` folders within your selected library.
+*   **Standardized Renaming**: Renames all media files to a consistent `YYYY-MM-DD_HH-MM-SS` format for easy chronological sorting.
+*   **Collision Handling**: If a file with the same name already exists, it intelligently appends a counter (e.g., `... (1)`, `... (2)`) to prevent accidental overwrites.
+*   **Recursive Cleanup**: After organizing all media, the script performs a final pass to find and delete any empty subfolders left behind.
+*   **User-Friendly Interface:**
+    *   Integrates `tkinter` for a simple graphical dialog to select your media library.
+    *   Displays a `tqdm` progress bar to show live progress during the organization process.
 
-## Deployment / Executable
+---
 
-This repository includes a `MediaTidy.spec` file, which serves as a "recipe" for PyInstaller. PyInstaller compiles the Python script into a standalone `MediaTidy.exe` for Windows. This allows the tool to be run on any Windows machine, even those without Python installed. The final `.exe` executable is generated in the `dist` folder after running PyInstaller.
+## Installation & Setup
 
-## How to Use (Script)
+To use MediaTidy, you need Python 3.
 
-1.  **Run the script**: Open your terminal or command prompt, navigate to the project directory, and execute the script using Python:
+1.  **Navigate to the project directory:**
+    ```bash
+    cd media-tidy
+    ```
+
+2.  **Install dependencies:**
+    It's highly recommended to use a virtual environment.
+    ```bash
+    # Create and activate a virtual environment (optional but recommended)
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+    # Install the required packages
+    pip install -r requirements.txt
+    ```
+
+---
+
+## Usage
+
+1.  **Run the script from your terminal:**
     ```bash
     python3 MediaTidy.py
     ```
-2.  **Select Folder**: A graphical dialog box will appear. Use it to select the main media library folder you wish to organize.
-3.  **Process**: The script will then automatically scan, move, rename, and clean up your entire media library, providing a progress bar for visibility.
+
+2.  **Select Your Media Library:** A graphical dialog box will appear. Navigate to and select the root folder of your photo/video library.
+
+3.  **Let it Run:** The script will automatically scan for all media files, organize them into the `Images` and `Videos` subdirectories, and clean up empty folders. You can monitor the progress in the terminal.
+
+---
+
+## Creating a Standalone Executable (Optional)
+
+You can bundle this script and its dependencies into a single standalone `.exe` file for Windows using **PyInstaller**. This allows the script to be run on machines that do not have Python installed.
+
+To build the executable:
+
+1.  **Install PyInstaller:**
+    ```bash
+    pip install pyinstaller
+    ```
+
+2.  **Run the build command from the project directory:**
+    This command will create a `.spec` file and a `dist` folder containing the final `MediaTidy.exe`.
+    ```bash
+    pyinstaller --onefile --windowed MediaTidy.py
+    ```
+
+3.  The final `MediaTidy.exe` will be located in the `dist` folder.
