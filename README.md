@@ -1,4 +1,4 @@
-# MediaTidy
+# media-tidy
 
 MediaTidy is a Python utility script that brings order to chaotic photo and video libraries. It automates the process of organizing your media by scanning a folder, intelligently renaming files based on their metadata, and moving them into a clean, standardized `Images` and `Videos` directory structure.
 
