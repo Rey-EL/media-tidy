@@ -43,7 +43,7 @@ To use MediaTidy, you need Python 3.
 
 1.  **Run the script from your terminal:**
     ```bash
-    python3 MediaTidy.py
+    python3 media_tidy.py
     ```
 
 2.  **Select Your Media Library:** A graphical dialog box will appear. Navigate to and select the root folder of your photo/video library.
@@ -66,7 +66,7 @@ To build the executable:
 2.  **Run the build command from the project directory:**
     This command will create a `.spec` file and a `dist` folder containing the final `MediaTidy.exe`.
     ```bash
-    pyinstaller --onefile --windowed MediaTidy.py
+    pyinstaller --onefile --windowed media_tidy.py
     ```
 
-3.  The final `MediaTidy.exe` will be located in the `dist` folder.
+3.  The final `media_tidy.exe` will be located in the `dist` folder.
