@@ -80,3 +80,15 @@ To build the executable:
     ```
 
 3.  The final `media_tidy.exe` will be located in the `dist` folder.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements, bug reports, or want to add new features, please feel free to open an issue or submit a pull request.
