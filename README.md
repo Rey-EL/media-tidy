@@ -17,6 +17,16 @@ MediaTidy is a Python utility script that brings order to chaotic photo and vide
 
 ---
 
+## Security Considerations
+
+MediaTidy is a local utility script and does not interact with networks or external services, which means it is not directly susceptible to many common web-based vulnerabilities like those in the OWASP Top 10. However, users should always:
+
+*   **Backup Important Data:** Before running any file management utility, ensure critical media files are backed up.
+*   **Understand File Operations:** Be aware of the files being processed and how they are being renamed and moved.
+*   **Keep System Updated:** Ensure your operating system and Python environment are kept up-to-date with the latest security patches.
+
+---
+
 ## Installation & Setup
 
 To use MediaTidy, you need Python 3.
