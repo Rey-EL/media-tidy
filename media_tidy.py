@@ -102,7 +102,7 @@ def main():
     protected_paths = {os.path.normcase(images_root_folder), os.path.normcase(videos_root_folder)}
 
     for current_folder, dirnames, file_names in os.walk(library_folder):
-        # UPDATED RULE: Smartly skip the final destination folders
+        # Skip the destination folders so already-organized files are not reprocessed
         dirnames[:] = [d for d in dirnames if os.path.normcase(os.path.join(current_folder, d)) not in protected_paths]
 
         for file_name in file_names:
